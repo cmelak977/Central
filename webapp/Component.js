@@ -3,10 +3,10 @@
  */
 
 sap.ui.define([
-        "sap/ui/core/UIComponent",
-        "sap/ui/Device",
-        "com/collak/home/central/central/model/models"
-    ],
+    "sap/ui/core/UIComponent",
+    "sap/ui/Device",
+    "com/collak/home/central/central/model/models"
+],
     function (UIComponent, Device, models) {
         "use strict";
 
@@ -29,6 +29,11 @@ sap.ui.define([
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+
+                var oModel = new sap.ui.model.json.JSONModel();
+                oModel.loadData("model/tiles.json"); // Ujisti se, že soubor je ve složce "model"
+                this.setModel(oModel, "tileModel");
+
             }
         });
     }

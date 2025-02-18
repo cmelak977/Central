@@ -1,0 +1,20 @@
+{
+    "tiles": [
+      {
+        "title": "Dashboard",
+        "icon": "sap-icon://home",
+        "route": "dashboard"
+      },
+      {
+        "title": "Statistiky",
+        "icon": "sap-icon://chart",
+        "route": "statistics"
+      },
+      {
+        "title": "Nastavení",
+        "icon": "sap-icon://settings",
+        "route": "settings"
+      }
+    ]
+  }
+  

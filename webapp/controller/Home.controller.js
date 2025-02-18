@@ -40,5 +40,10 @@ sap.ui.define([
             onPopoverClose: function () {
                 this.oMyAvatar.setActive(false);
             },
+            handleTilePress: function(oEvent){
+                MessageToast.show(oEvent.getSource().data("route"));
+                
+
+            }
         });
     });

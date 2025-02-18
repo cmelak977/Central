@@ -4,6 +4,7 @@
     displayBlock="true"
     xmlns="sap.m"
     xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
 >
     <f:ShellBar
         id="shellbar_main"
@@ -39,7 +40,7 @@
         </f:profile>
     </f:ShellBar>
     <IconTabBar
-        id="idIconTabBarNoIcons"
+        id="shellTabBar"
         class="sapUiResponsiveContentPadding"
         expandable="false"
     >
@@ -53,7 +54,7 @@
                     level="H1"
                 />
                 <IconTabBar
-                    id="iconTabBar1"
+                    id="MyHomeTabBar"
                     backgroundDesign="Transparent"
                     headerBackgroundDesign="Transparent"
                     expandable="false"
@@ -63,40 +64,29 @@
                             text="Favorites"
                             key="favorites"
                         >
-                            <GenericTile
-                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                                header="Cumulative Totals"
-                                subheader="Expenses"
-                                press="press"
+                            <FlexBox
+                                wrap="Wrap"
+                                justifyContent="Start"
+                                items="{tileModel>/tiles}"
                             >
-                                <TileContent
-                                    unit="Unit"
-                                    footer="Footer Text"
+                                <GenericTile
+                                    header="{tileModel>title}"
+                                    subheader="{tileModel>subheader}"
+                                    press=".handleTilePress"
+                                    class="sapUiSmallMargin"
                                 >
-                                    <NumericContent
-                                        value="1762"
-                                        icon="sap-icon://line-charts"
-                                        withMargin="false"
-                                    />
-                                </TileContent>
-                            </GenericTile>
-
-                            <GenericTile
-                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
-                                header="Cumulative Totals"
-                                subheader="Expenses"
-                                press="press"
-                            >
-                                <TileContent
-                                    unit="Unit"
-                                    footer="Footer Text"
-                                >
-                                    <NumericContent
-                                        value="12"
-                                        withMargin="false"
-                                    />
-                                </TileContent>
-                            </GenericTile>
+                                    <TileContent>
+                                        <ImageContent src="{tileModel>icon}" />
+                                    </TileContent>
+                                    <customData>
+                                        <core:CustomData
+                                            key="route"
+                                            value="{tileModel>route}"
+                                            writeToDom="true"
+                                        />
+                                    </customData>
+                                </GenericTile>
+                            </FlexBox>
                         </IconTabFilter>
                     </items>
                 </IconTabBar>
@@ -110,11 +100,10 @@
                 text="Info"
                 key="info"
             >
-            <Title
+                <Title
                     text="Přehled"
                     level="H1"
                 />
-                
             </IconTabFilter>
         </items>
     </IconTabBar>
