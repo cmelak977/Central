@@ -14,7 +14,7 @@ sap.ui.define([
                 this.oMyAvatar = this.oView.byId("avatarId");
                 this._oPopover = Fragment.load({
                     id: this.oView.getId(),
-                    name: "com.collak.home.central.central.view.Popover",
+                    name: "com.collak.home.central.central.view.fragment.Popover",
                     controller: this
                 }).then(function(oPopover) {
                     this.oView.addDependent(oPopover);

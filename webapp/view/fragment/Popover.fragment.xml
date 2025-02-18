@@ -4,11 +4,11 @@
 	xmlns:f="sap.f"
 	xmlns:l="sap.ui.layout">
 	<Popover
-		id="userMenu"
+		id="userMen"
 		title="User Menu"
 		titleAlignment="Center"
 		placement="Bottom"
 		afterClose="onPopoverClose">
-		<core:Fragment fragmentName="com.collak.home.central.central.view.UserMenu" type="XML"> </core:Fragment>
+		<core:Fragment fragmentName="com.collak.home.central.central.view.fragment.UserMenu" type="XML"> </core:Fragment>
 	</Popover>
 </core:FragmentDefinition>
