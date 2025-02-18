@@ -83,6 +83,13 @@
           "target": [
             "TargetHome"
           ]
+        },
+        {
+          "name": "GoToOrders",
+          "pattern": "/Orders",
+          "target": [
+            "TargetOrders"
+          ]
         }
       ],
       "targets": {
@@ -92,6 +99,13 @@
           "clearControlAggregation": false,
           "viewId": "Home",
           "viewName": "Home"
+        },
+        "TargetOrders": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Orders",
+          "viewName": "Orders"
         }
       }
     },

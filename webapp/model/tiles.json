@@ -1,19 +1,54 @@
 {
     "tiles": [
       {
-        "title": "Dashboard",
+        "title": "Objednávky",
+        "subheader": "Přehled",
         "icon": "sap-icon://home",
-        "route": "dashboard"
+        "route": "GoToOrders",
+        "scale": "ks",
+        "value": "100"
       },
       {
         "title": "Statistiky",
         "icon": "sap-icon://chart",
-        "route": "statistics"
+        "route": "statistics",
+        "scale": "%",
+        "value": "200"
       },
       {
         "title": "Nastavení",
         "icon": "sap-icon://settings",
-        "route": "settings"
+        "route": "settings",
+        "scale": "ks",
+        "value": "200"
+      },
+      {
+        "title": "Statistiky",
+        "icon": "sap-icon://chart",
+        "route": "statistics",
+        "scale": "%",
+        "value": "200"
+      },
+      {
+        "title": "Statistiky",
+        "icon": "sap-icon://chart",
+        "route": "statistics",
+        "scale": "%",
+        "value": "200"
+      },
+      {
+        "title": "Statistiky",
+        "icon": "sap-icon://chart",
+        "route": "statistics",
+        "scale": "%",
+        "value": "200"
+      },
+      {
+        "title": "Statistiky",
+        "icon": "sap-icon://chart",
+        "route": "statistics",
+        "scale": "%",
+        "value": "200"
       }
     ]
   }

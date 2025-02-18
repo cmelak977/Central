@@ -1,17 +1,18 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
-    "sap/ui/core/Fragment"
+    "sap/ui/core/Fragment",
+    "sap/ui/core/routing/History"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, Fragment) {
+    function (Controller, MessageToast, Fragment, History) {
         "use strict";
 
-        return Controller.extend("com.collak.home.central.central.controller.Home", {
+        return Controller.extend("com.collak.home.central.central.controller.Orders", {
             onInit: function () {
-                this.oMyAvatar = this.oView.byId("avatarId");
+                this.oMyAvatar = this.oView.byId("avatarId2");
                 this._oPopover = Fragment.load({
                     id: this.oView.getId(),
                     name: "com.collak.home.central.central.view.fragment.Popover",
@@ -23,7 +24,16 @@ sap.ui.define([
 
             },
             handleHomeIconPress: function (oEvent) {
-                MessageToast.show("Již jsi na úvodní obrazovce");
+                const oHistory = History.getInstance();
+                const sPreviousHash = oHistory.getPreviousHash();
+
+                if (sPreviousHash !== undefined) {
+                    window.history.go(-1);
+                } else {
+                    const oRouter = this.getOwnerComponent().getRouter();
+                    oRouter.navTo("RouteHome", {}, true);
+                }
+
             },
 
             handleAvatarPress: function (oEvent) {
@@ -39,15 +49,6 @@ sap.ui.define([
             },
             onPopoverClose: function () {
                 this.oMyAvatar.setActive(false);
-            },
-            handleTilePress: function (oEvent) {
-                MessageToast.show(oEvent.getSource().data("route"));
-            },
-            GoToOrders: function () {
-                
-                const oRouter = this.getOwnerComponent().getRouter();
-                console.log(oRouter);
-                oRouter.navTo("GoToOrders");
             }
 
         });

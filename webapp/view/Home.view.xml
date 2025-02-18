@@ -1,110 +1,180 @@
 <mvc:View
+    xmlns:launchpad="sap.ushell.ui.launchpad"
     controllerName="com.collak.home.central.central.controller.Home"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core"
 >
-    <f:ShellBar
-        id="shellbar_main"
-        title="{i18n>appTitle}"
-        secondTitle="{i18n>shortDescription}"
-        homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png"
-        showCopilot="true"
-        showSearch="false"
-        showNotifications="true"
-        notificationsNumber="2"
-        homeIconPressed="handleHomeIconPress"
-    >
-        <f:menu>
-            <Menu id="menu_main">
-                <MenuItem
-                    id="menu_item_1"
-                    text="Flight booking"
-                    icon="sap-icon://flight"
+    <Page showHeader="false">
+        <f:ShellBar
+            id="shellbar_main"
+            title="{i18n>appTitle}"
+            secondTitle="{i18n>shortDescription}"
+            homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png"
+            showCopilot="true"
+            showSearch="false"
+            showNotifications="true"
+            notificationsNumber="2"
+            homeIconPressed="handleHomeIconPress"
+        >
+            <f:menu>
+                <Menu id="menu_main">
+                    <MenuItem
+                        id="menu_item_1"
+                        text="Flight booking"
+                        icon="sap-icon://flight"
+                    />
+                    <MenuItem
+                        id="menu_item_2"
+                        text="Car rental"
+                        icon="sap-icon://car-rental"
+                    />
+                </Menu>
+            </f:menu>
+            <f:profile>
+                <Avatar
+                    press="handleAvatarPress"
+                    id="avatarId"
+                    initials="UI"
                 />
-                <MenuItem
-                    id="menu_item_2"
-                    text="Car rental"
-                    icon="sap-icon://car-rental"
-                />
-            </Menu>
-        </f:menu>
-        <f:profile>
-            <Avatar
-                press="handleAvatarPress"
-                id="avatarId"
-                initials="UI"
-            />
-        </f:profile>
-    </f:ShellBar>
-    <IconTabBar
-        id="shellTabBar"
-        class="sapUiResponsiveContentPadding"
-        expandable="false"
-    >
-        <items>
-            <IconTabFilter
-                text="My home"
-                key="myHome"
-            >
-                <Title
-                    text="Aplikace"
-                    level="H1"
-                />
-                <IconTabBar
-                    id="MyHomeTabBar"
-                    backgroundDesign="Transparent"
-                    headerBackgroundDesign="Transparent"
-                    expandable="false"
+            </f:profile>
+        </f:ShellBar>
+        <IconTabBar
+            id="shellTabBar"
+            class="sapUiResponsiveContentPadding"
+            expandable="false"
+        >
+            <items>
+                <IconTabFilter
+                    text="My home"
+                    key="myHome"
                 >
-                    <items>
-                        <IconTabFilter
-                            text="Favorites"
-                            key="favorites"
-                        >
-                            <FlexBox
-                                wrap="Wrap"
-                                justifyContent="Start"
-                                items="{tileModel>/tiles}"
+                    <Title
+                        text="Aplikace"
+                        level="H1"
+                    />
+                    <IconTabBar
+                        id="MyHomeTabBar"
+                        backgroundDesign="Transparent"
+                        headerBackgroundDesign="Transparent"
+                        expandable="false"
+                    >
+                        <items>
+                            <IconTabFilter
+                                text="Favorites"
+                                key="favorites"
                             >
-                                <GenericTile
-                                    header="{tileModel>title}"
-                                    subheader="{tileModel>subheader}"
-                                    press=".handleTilePress"
-                                    class="sapUiSmallMargin"
+                                <FlexBox
+                                    wrap="Wrap"
+                                    justifyContent="Start"
+                                    items="{tileModel>/tiles}"
                                 >
-                                    <TileContent>
-                                        <ImageContent src="{tileModel>icon}" />
-                                    </TileContent>
-                                    <customData>
-                                        <core:CustomData
-                                            key="route"
-                                            value="{tileModel>route}"
-                                            writeToDom="true"
-                                        />
-                                    </customData>
-                                </GenericTile>
-                            </FlexBox>
-                        </IconTabFilter>
-                    </items>
-                </IconTabBar>
-                <Title
-                    text="ToDos"
-                    level="H1"
-                />
-            </IconTabFilter>
+                                    <GenericTile
+                                        header="{tileModel>title}"
+                                        subheader="{tileModel>subheader}"
+                                        press=".handleTilePress"
+                                        class="sapUiSmallMargin"
+                                        mode="ContentMode"
+                                    >
+                                        <TileContent unit="CZK">
+                                            <ImageContent
+                                                src="{tileModel>icon}"
+                                            />
+                                            <NumericContent
+                                                scale="{tileModel>scale}"
+                                                value="{tileModel>value}"
+                                                valueColor="Critical"
+                                                indicator="None"
+                                                withMargin="false"
+                                            />
+                                        </TileContent>
+                                        <customData>
+                                            <core:CustomData
+                                                key="route"
+                                                value="{tileModel>route}"
+                                                writeToDom="true"
+                                            />
+                                        </customData>
+                                    </GenericTile>
+                                </FlexBox>
+                                <FlexBox
+                                    wrap="Wrap"
+                                    justifyContent="Start"
+                                />
+                            </IconTabFilter>
+                            <IconTabFilter
+                                text="Other"
+                                key="other"
+                            >
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
+                    <l:VerticalLayout class="sapUiContentPadding">
+                        <Title
+                            text="ToDos"
+                            level="H1"
+                        />
+                        <l:HorizontalLayout>
+                            <GenericTile
+                                id="abcd"
+                                header="Orders"
+                                press="GoToOrders"
+                                class="sapUiSmallMargin"
+                                mode="ContentMode"
+                            />
+                           
+                        </l:HorizontalLayout>
+                    </l:VerticalLayout>
+                </IconTabFilter>
 
-            <IconTabFilter
-                text="Info"
-                key="info"
-            >
-                <Title
-                    text="Přehled"
-                    level="H1"
-                />
-            </IconTabFilter>
-        </items>
-    </IconTabBar>
+                <IconTabFilter
+                    text="Info"
+                    key="info"
+                >
+                    <VBox class="sapUiSmallMargin">
+                        <form:SimpleForm
+                            id="SimpleFormDisplay354"
+                            editable="false"
+                            layout="ResponsiveGridLayout"
+                            title="Address"
+                            labelSpanXL="3"
+                            labelSpanL="3"
+                            labelSpanM="3"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="4"
+                            emptySpanL="4"
+                            emptySpanM="4"
+                            emptySpanS="0"
+                            columnsXL="1"
+                            columnsL="1"
+                            columnsM="1"
+                            singleContainerFullSize="false"
+                        >
+                            <form:content>
+                                <Label text="Name" />
+                                <Text
+                                    id="nameText"
+                                    text="{SupplierName}"
+                                />
+                                <Label text="Street/No." />
+                                <Text text="{Street} {HouseNumber}" />
+                                <Label text="ZIP Code/City" />
+                                <Text text="{ZIPCode} {City}" />
+                                <Label text="Country" />
+                                <Text
+                                    id="countryText"
+                                    text="{Country}"
+                                />
+                            </form:content>
+                        </form:SimpleForm>
+                    </VBox>
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+    </Page>
 </mvc:View>

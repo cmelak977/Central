@@ -1,0 +1,47 @@
+<mvc:View
+    xmlns:launchpad="sap.ushell.ui.launchpad"
+    controllerName="com.collak.home.central.central.controller.Orders"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+>
+    <Page showHeader="false">
+        <f:ShellBar
+            id="shellbar_main2"
+            title="Objednávky"
+            secondTitle="{i18n>shortDescription}"
+            homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png"
+            showCopilot="true"
+            showSearch="false"
+            showNotifications="true"
+            notificationsNumber="2"
+            homeIconPressed="handleHomeIconPress"
+        >
+            <f:menu>
+                <Menu id="menu_main2">
+                    <MenuItem
+                        id="menu_item_12"
+                        text="Dashboard"
+                        icon="sap-icon://home"
+                    />
+                    <MenuItem
+                        id="menu_item_22"
+                        text="Objednávky"
+                        icon="sap-icon://list"
+                    />
+                </Menu>
+            </f:menu>
+            <f:profile>
+                <Avatar
+                    press="handleAvatarPress"
+                    id="avatarId2"
+                    initials="UI"
+                />
+            </f:profile>
+        </f:ShellBar>
+    </Page>
+</mvc:View>
