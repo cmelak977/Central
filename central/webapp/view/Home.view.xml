@@ -1,0 +1,121 @@
+<mvc:View
+    controllerName="com.collak.home.central.central.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+>
+    <f:ShellBar
+        id="shellbar_main"
+        title="{i18n>appTitle}"
+        secondTitle="{i18n>shortDescription}"
+        homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png"
+        showCopilot="true"
+        showSearch="false"
+        showNotifications="true"
+        notificationsNumber="2"
+        homeIconPressed="handleHomeIconPress"
+    >
+        <f:menu>
+            <Menu id="menu_main">
+                <MenuItem
+                    id="menu_item_1"
+                    text="Flight booking"
+                    icon="sap-icon://flight"
+                />
+                <MenuItem
+                    id="menu_item_2"
+                    text="Car rental"
+                    icon="sap-icon://car-rental"
+                />
+            </Menu>
+        </f:menu>
+        <f:profile>
+            <Avatar
+                press="handleAvatarPress"
+                id="avatarId"
+                initials="UI"
+            />
+        </f:profile>
+    </f:ShellBar>
+    <IconTabBar
+        id="idIconTabBarNoIcons"
+        class="sapUiResponsiveContentPadding"
+        expandable="false"
+    >
+        <items>
+            <IconTabFilter
+                text="My home"
+                key="myHome"
+            >
+                <Title
+                    text="Aplikace"
+                    level="H1"
+                />
+                <IconTabBar
+                    id="iconTabBar1"
+                    backgroundDesign="Transparent"
+                    headerBackgroundDesign="Transparent"
+                    expandable="false"
+                >
+                    <items>
+                        <IconTabFilter
+                            text="Favorites"
+                            key="favorites"
+                        >
+                            <GenericTile
+                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                                header="Cumulative Totals"
+                                subheader="Expenses"
+                                press="press"
+                            >
+                                <TileContent
+                                    unit="Unit"
+                                    footer="Footer Text"
+                                >
+                                    <NumericContent
+                                        value="1762"
+                                        icon="sap-icon://line-charts"
+                                        withMargin="false"
+                                    />
+                                </TileContent>
+                            </GenericTile>
+
+                            <GenericTile
+                                class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                                header="Cumulative Totals"
+                                subheader="Expenses"
+                                press="press"
+                            >
+                                <TileContent
+                                    unit="Unit"
+                                    footer="Footer Text"
+                                >
+                                    <NumericContent
+                                        value="12"
+                                        withMargin="false"
+                                    />
+                                </TileContent>
+                            </GenericTile>
+                        </IconTabFilter>
+                    </items>
+                </IconTabBar>
+                <Title
+                    text="ToDos"
+                    level="H1"
+                />
+            </IconTabFilter>
+
+            <IconTabFilter
+                text="Info"
+                key="info"
+            >
+            <Title
+                    text="Přehled"
+                    level="H1"
+                />
+                
+            </IconTabFilter>
+        </items>
+    </IconTabBar>
+</mvc:View>
