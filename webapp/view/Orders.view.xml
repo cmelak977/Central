@@ -10,38 +10,89 @@
     xmlns:core="sap.ui.core"
 >
     <Page showHeader="false">
-        <f:ShellBar
-            id="shellbar_main2"
-            title="Objednávky"
-            secondTitle="{i18n>shortDescription}"
-            homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png"
-            showCopilot="true"
-            showSearch="false"
-            showNotifications="true"
-            notificationsNumber="2"
-            homeIconPressed="handleHomeIconPress"
-        >
-            <f:menu>
-                <Menu id="menu_main2">
-                    <MenuItem
-                        id="menu_item_12"
-                        text="Dashboard"
-                        icon="sap-icon://home"
+        <content>
+            <f:ShellBar
+                id="shellbar_main2"
+                title="{i18n>orders}"
+                secondTitle="{i18n>shortDescription}"
+                homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png"
+                showCopilot="true"
+                showSearch="false"
+                showNotifications="true"
+                notificationsNumber="2"
+                homeIconPressed="handleHomeIconPress"
+            >
+                <f:menu>
+                    <Menu id="menu_main2">
+                        <MenuItem
+                            id="menu_item_12"
+                            text="Dashboard"
+                            icon="sap-icon://home"
+                        />
+                        <MenuItem
+                            id="menu_item_22"
+                            text="Objednávky"
+                            icon="sap-icon://list"
+                        />
+                    </Menu>
+                </f:menu>
+                <f:profile>
+                    <Avatar
+                        press="handleAvatarPress"
+                        id="avatarId2"
+                        initials="UI"
                     />
-                    <MenuItem
-                        id="menu_item_22"
-                        text="Objednávky"
-                        icon="sap-icon://list"
-                    />
-                </Menu>
-            </f:menu>
-            <f:profile>
-                <Avatar
-                    press="handleAvatarPress"
-                    id="avatarId2"
-                    initials="UI"
-                />
-            </f:profile>
-        </f:ShellBar>
+                </f:profile>
+            </f:ShellBar>
+            <List
+                id="orderList"
+                headerText="{i18n>orders}"
+                width="auto"
+                class="sapUiResponsiveMargin"
+                items="{
+                    path: 'Orders>/Invoices',
+                    sorter: {
+                        path: 'ShipperName',
+                        group: true
+                            }
+                }"
+            >
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="{i18n>orders}" />
+                        <ToolbarSpacer />
+                        <SearchField
+                            width="50%"
+                            search="onFilterOrders"
+                        />
+                    </Toolbar>
+                </headerToolbar>
+                <items>
+                    <ObjectListItem
+                        press="onOrderPress"
+                        type="Navigation"
+                        title="{Orders>ProductName}"
+                        number="{ 
+                            parts:[{path: 'Orders>ExtendedPrice'}, {path: 'Orders>Currency'}],
+                            type:'sap.ui.model.type.Currency',
+                            formatOptions: {
+                                showMeasure: false
+                                }
+                        }"
+                        numberUnit="{Orders>Currency}"
+                        numberState="{= ${Orders>ExtendedPrice} > 50 ? 'Error' : 'Success' }"
+                    >
+                        <firstStatus>
+                            <ObjectStatus
+                                text="{
+                                    path: 'Orders>Status',
+                                    formatter: '.formatter.statusText'
+                                    }"
+                            />
+                        </firstStatus>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
     </Page>
 </mvc:View>

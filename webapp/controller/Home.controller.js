@@ -44,10 +44,7 @@ sap.ui.define([
                 MessageToast.show(oEvent.getSource().data("route"));
             },
             GoToOrders: function () {
-                
-                const oRouter = this.getOwnerComponent().getRouter();
-                console.log(oRouter);
-                oRouter.navTo("GoToOrders");
+                this.getOwnerComponent().getRouter().navTo("GoToOrders");
             }
 
         });

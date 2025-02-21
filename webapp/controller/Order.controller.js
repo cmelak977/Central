@@ -3,23 +3,18 @@ sap.ui.define([
     "sap/m/MessageToast",
     "sap/ui/core/Fragment",
     "sap/ui/core/routing/History",
-    "sap/ui/model/json/JSONModel",
-    "../model/formatter",
-    "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, Fragment, History, JSONModel, formatter, Filter, FilterOperator) {
+    function (Controller, MessageToast, Fragment, History, JSONModel ) {
         "use strict";
 
-        return Controller.extend("com.collak.home.central.central.controller.Orders", {
-            formatter: formatter,
-
+        return Controller.extend("com.collak.home.central.central.controller.Order", {
             onInit: function () {
-
-                this.oMyAvatar = this.oView.byId("avatarId2");
+                
+                this.oMyAvatar = this.oView.byId("avatarId23");
                 this._oPopover = Fragment.load({
                     id: this.oView.getId(),
                     name: "com.collak.home.central.central.view.fragment.Popover",
@@ -29,7 +24,20 @@ sap.ui.define([
                     this._oPopover = oPopover;
                 }.bind(this));
 
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.getRoute("Order").attachPatternMatched(this._onObjectMatched, this);
+                
+
             },
+            _onObjectMatched: function (oEvent) {
+                this.getView().bindElement(
+                    {
+                         path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath),
+                         model: "Orders"
+                    }
+                )
+            },
+
             handleHomeIconPress: function (oEvent) {
                 const oHistory = History.getInstance();
                 const sPreviousHash = oHistory.getPreviousHash();
@@ -38,7 +46,7 @@ sap.ui.define([
                     window.history.go(-1);
                 } else {
                     const oRouter = this.getOwnerComponent().getRouter();
-                    oRouter.navTo("RouteHome", {}, true);
+                    oRouter.navTo("GoToOrders", {}, true);
                 }
 
             },
@@ -57,30 +65,5 @@ sap.ui.define([
             onPopoverClose: function () {
                 this.oMyAvatar.setActive(false);
             },
-
-            onFilterOrders: function (oEvent) {
-
-                //build filter
-                var aFilter = [];
-                var sQuery = oEvent.getParameter("query");
-                if (sQuery) {
-                    aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery))
-                }
-
-                //Filter
-                var oList = this.byId("orderList");
-                var oBinding = oList.getBinding("items");
-                oBinding.filter(aFilter);
-
-
-            },
-            onOrderPress: function (oEvent) {
-                var oItem = oEvent.getSource();
-                const oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("Order", { invoicePath: window.encodeURIComponent(oItem.getBindingContext("Orders").getPath().substr(1)) 
-
-                });
-            }
-
         });
     });

@@ -57,6 +57,10 @@
         "settings": {
           "bundleName": "com.collak.home.central.central.i18n.i18n"
         }
+      },
+      "Orders":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/Orders.json"
       }
     },
     "resources": {
@@ -79,16 +83,23 @@
       "routes": [
         {
           "name": "RouteHome",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
             "TargetHome"
           ]
         },
         {
           "name": "GoToOrders",
-          "pattern": "/Orders",
+          "pattern": "Orders",
           "target": [
             "TargetOrders"
+          ]
+        },
+        {
+          "name": "Order",
+          "pattern": "Order/{invoicePath}",
+          "target": [
+            "TargetOrder"
           ]
         }
       ],
@@ -106,6 +117,13 @@
           "clearControlAggregation": false,
           "viewId": "Orders",
           "viewName": "Orders"
+        },
+        "TargetOrder": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Order",
+          "viewName": "Order"
         }
       }
     },
