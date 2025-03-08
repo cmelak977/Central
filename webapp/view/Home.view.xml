@@ -8,41 +8,13 @@
     xmlns:form="sap.ui.layout.form"
     xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core"
+    xmlns:cards="sap.f.cards"
 >
     <Page showHeader="false">
-        <f:ShellBar
-            id="shellbar_main"
-            title="{i18n>appTitle}"
-            secondTitle="{i18n>shortDescription}"
-            homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png"
-            showCopilot="true"
-            showSearch="false"
-            showNotifications="true"
-            notificationsNumber="2"
-            homeIconPressed="handleHomeIconPress"
-        >
-            <f:menu>
-                <Menu id="menu_main">
-                    <MenuItem
-                        id="menu_item_1"
-                        text="Flight booking"
-                        icon="sap-icon://flight"
-                    />
-                    <MenuItem
-                        id="menu_item_2"
-                        text="Car rental"
-                        icon="sap-icon://car-rental"
-                    />
-                </Menu>
-            </f:menu>
-            <f:profile>
-                <Avatar
-                    press="handleAvatarPress"
-                    id="avatarId"
-                    initials="UI"
-                />
-            </f:profile>
-        </f:ShellBar>
+        <core:Fragment
+            fragmentName="com.collak.home.central.central.view.fragment.ShellBar"
+            type="XML"
+        />
         <IconTabBar
             id="shellTabBar"
             class="sapUiResponsiveContentPadding"
@@ -71,13 +43,14 @@
                                 <FlexBox
                                     wrap="Wrap"
                                     justifyContent="Start"
+                                    class="customFlexBox"
                                     items="{tileModel>/tiles}"
                                 >
                                     <GenericTile
                                         header="{tileModel>title}"
                                         subheader="{tileModel>subheader}"
                                         press=".handleTilePress"
-                                        class="sapUiSmallMargin"
+                                        class="sapUiTinyMargin"
                                         mode="ContentMode"
                                     >
                                         <TileContent unit="CZK">
@@ -109,8 +82,7 @@
                             <IconTabFilter
                                 text="Other"
                                 key="other"
-                            >
-                            </IconTabFilter>
+                            />
                         </items>
                     </IconTabBar>
                     <l:VerticalLayout class="sapUiContentPadding">
@@ -118,16 +90,27 @@
                             text="ToDos"
                             level="H1"
                         />
-                        <l:HorizontalLayout>
-                            <GenericTile
-                                id="abcd"
-                                header="Orders"
-                                press="GoToOrders"
-                                class="sapUiSmallMargin"
-                                mode="ContentMode"
-                            />
-                           
-                        </l:HorizontalLayout>
+                        <f:Card
+                        >
+                            <f:header>
+                                <cards:Header
+                                    title="Todo">
+                                </cards:Header>
+                            </f:header>
+                                
+                            <f:content>
+                                <List>
+                                    <StandardListItem
+                                        title="Approve Purchase Order 4500077070"
+                                        description="Medium Priority"
+                                    />
+                                    <StandardListItem
+                                        title="Approve Purchase Contract 4600005179"
+                                        description="Medium Priority"
+                                    />
+                                </List>
+                            </f:content>
+                        </f:Card>
                     </l:VerticalLayout>
                 </IconTabFilter>
 

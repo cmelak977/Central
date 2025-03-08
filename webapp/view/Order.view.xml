@@ -12,39 +12,7 @@
     <Page showHeader="false">
         <content>
             <VBox>
-                <f:ShellBar
-                    id="shellbar_main3"
-                    title="{i18n>orders}"
-                    secondTitle="{i18n>shortDescription}"
-                    homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png"
-                    showCopilot="true"
-                    showSearch="false"
-                    showNotifications="true"
-                    notificationsNumber="2"
-                    homeIconPressed="handleHomeIconPress"
-                >
-                    <f:menu>
-                        <Menu id="menu_main3">
-                            <MenuItem
-                                id="menu_item_123"
-                                text="Dashboard"
-                                icon="sap-icon://home"
-                            />
-                            <MenuItem
-                                id="menu_item_223"
-                                text="Objednávky"
-                                icon="sap-icon://list"
-                            />
-                        </Menu>
-                    </f:menu>
-                    <f:profile>
-                        <Avatar
-                            press="handleAvatarPress"
-                            id="avatarId23"
-                            initials="UI"
-                        />
-                    </f:profile>
-                </f:ShellBar>
+                <core:Fragment fragmentName="com.collak.home.central.central.view.fragment.ShellBar" type="XML"/>
                 <ObjectHeader 
                     intro="{Orders>ShipperName}"
                     title="{Orders>ProductName}"

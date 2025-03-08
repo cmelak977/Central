@@ -19,7 +19,7 @@ sap.ui.define([
 
             onInit: function () {
 
-                this.oMyAvatar = this.oView.byId("avatarId2");
+                this.oMyAvatar = this.oView.byId("avatarId");
                 this._oPopover = Fragment.load({
                     id: this.oView.getId(),
                     name: "com.collak.home.central.central.view.fragment.Popover",
@@ -28,6 +28,12 @@ sap.ui.define([
                     this.oView.addDependent(oPopover);
                     this._oPopover = oPopover;
                 }.bind(this));
+
+                //ShellBar navigation
+                var oViewModel = new sap.ui.model.json.JSONModel({
+                    shellTitle: "Objednávky"
+                });
+                this.getView().setModel(oViewModel, "viewModel");
 
             },
             handleHomeIconPress: function (oEvent) {

@@ -1,4 +1,8 @@
-{
+{   
+    "head": {
+      "notification": 10,
+      "inicials": "MC"
+    },
     "tiles": [
       {
         "title": "Objednávky",

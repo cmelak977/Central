@@ -1,0 +1,39 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+>
+    <f:ShellBar
+        id="shellbar_main"
+        title="{viewModel>/shellTitle}"
+        
+        homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png"
+        showCopilot="true"
+        showSearch="false"
+        showNotifications="true"
+        notificationsNumber="{tileModel>/head/notification}"
+        homeIconPressed="handleHomeIconPress"
+    >
+        <f:menu>
+            <Menu id="menu_main">
+                <MenuItem
+                    id="menu_item_1"
+                    text="Flight booking"
+                    icon="sap-icon://flight"
+                />
+                <MenuItem
+                    id="menu_item_2"
+                    text="Car rental"
+                    icon="sap-icon://car-rental"
+                />
+            </Menu>
+        </f:menu>
+        <f:profile>
+            <Avatar
+                press="handleAvatarPress"
+                id="avatarId"
+                initials="{tileModel>/head/inicials}"
+            />
+        </f:profile>
+    </f:ShellBar>
+</core:FragmentDefinition>

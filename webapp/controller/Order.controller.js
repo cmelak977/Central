@@ -14,7 +14,7 @@ sap.ui.define([
         return Controller.extend("com.collak.home.central.central.controller.Order", {
             onInit: function () {
                 
-                this.oMyAvatar = this.oView.byId("avatarId23");
+                this.oMyAvatar = this.oView.byId("avatarId");
                 this._oPopover = Fragment.load({
                     id: this.oView.getId(),
                     name: "com.collak.home.central.central.view.fragment.Popover",
@@ -26,6 +26,13 @@ sap.ui.define([
 
                 var oRouter = this.getOwnerComponent().getRouter();
                 oRouter.getRoute("Order").attachPatternMatched(this._onObjectMatched, this);
+
+
+                //ShellBar navigation
+                var oViewModel = new sap.ui.model.json.JSONModel({
+                    shellTitle: "Objednávka"
+                });
+                this.getView().setModel(oViewModel, "viewModel");
                 
 
             },

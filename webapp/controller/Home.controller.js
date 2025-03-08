@@ -11,6 +11,8 @@ sap.ui.define([
 
         return Controller.extend("com.collak.home.central.central.controller.Home", {
             onInit: function () {
+
+                //Avatar popover
                 this.oMyAvatar = this.oView.byId("avatarId");
                 this._oPopover = Fragment.load({
                     id: this.oView.getId(),
@@ -20,6 +22,12 @@ sap.ui.define([
                     this.oView.addDependent(oPopover);
                     this._oPopover = oPopover;
                 }.bind(this));
+
+                //ShellBar navigation
+                var oViewModel = new sap.ui.model.json.JSONModel({
+                    shellTitle: "Dashboard"
+                });
+                this.getView().setModel(oViewModel, "viewModel");
 
             },
             handleHomeIconPress: function (oEvent) {
@@ -41,8 +49,9 @@ sap.ui.define([
                 this.oMyAvatar.setActive(false);
             },
             handleTilePress: function (oEvent) {
-                MessageToast.show(oEvent.getSource().data("route"));
+                this.getOwnerComponent().getRouter().navTo(oEvent.getSource().data("route"));
             },
+            
             GoToOrders: function () {
                 this.getOwnerComponent().getRouter().navTo("GoToOrders");
             }
