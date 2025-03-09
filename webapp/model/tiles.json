@@ -7,16 +7,17 @@
       {
         "title": "Objednávky",
         "subheader": "Přehled",
-        "icon": "sap-icon://home",
         "route": "GoToOrders",
         "scale": "ks",
-        "value": "100"
+        "value": "100",
+        "meaning": "Critical",
+        "pointer": "Down",
+        "uom": "CZK"
       },
       {
         "title": "Statistiky",
         "icon": "sap-icon://chart",
         "route": "statistics",
-        "scale": "%",
         "value": "200"
       },
       {

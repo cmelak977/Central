@@ -34,6 +34,18 @@ sap.ui.define([
                 oModel.loadData("model/tiles.json"); // Ujisti se, že soubor je ve složce "model"
                 this.setModel(oModel, "tileModel");
 
+                // Nastavení globálního AJAX interceptoru
+                $.ajaxSetup({
+                    beforeSend: function (xhr) {
+                        //console.log("Odesílám request na API...");
+                    },
+                    complete: function (xhr) {
+                        if (xhr.status === 404) {
+                            //window.location.href = "/login";
+                        }
+                    }
+                });
+
             }
         });
     }

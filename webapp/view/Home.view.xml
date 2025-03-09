@@ -53,15 +53,15 @@
                                         class="sapUiTinyMargin"
                                         mode="ContentMode"
                                     >
-                                        <TileContent unit="CZK">
+                                        <TileContent unit="{tileModel>uom}">
                                             <ImageContent
                                                 src="{tileModel>icon}"
                                             />
                                             <NumericContent
                                                 scale="{tileModel>scale}"
                                                 value="{tileModel>value}"
-                                                valueColor="Critical"
-                                                indicator="None"
+                                                valueColor="{tileModel>meaning}"
+                                                indicator="{tileModel>pointer}"
                                                 withMargin="false"
                                             />
                                         </TileContent>
