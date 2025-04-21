@@ -6,7 +6,6 @@
     <f:ShellBar
         id="shellbar_main"
         title="{viewModel>/shellTitle}"
-        
         homeIcon="./resources/sap/ui/documentation/sdk/images/logo_sap.png"
         showCopilot="true"
         showSearch="false"
@@ -18,12 +17,12 @@
             <Menu id="menu_main">
                 <MenuItem
                     id="menu_item_1"
-                    text="Flight booking"
+                    text="Domov"
                     icon="sap-icon://flight"
                 />
                 <MenuItem
                     id="menu_item_2"
-                    text="Car rental"
+                    text="Objednávky"
                     icon="sap-icon://car-rental"
                 />
             </Menu>
@@ -33,6 +32,7 @@
                 press="handleAvatarPress"
                 id="avatarId"
                 initials="{tileModel>/head/inicials}"
+                src="{tileModel>/head/image}"
             />
         </f:profile>
     </f:ShellBar>

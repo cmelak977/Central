@@ -7,7 +7,27 @@
             "ShipperName": "Fun Inc.",
             "ShippedDate": "2015-04-01T00:00:00",
             "Status": "A",
-            "Currency": "CZK"
+            "Currency": "CZK",
+            "Items": [
+                {
+                    "ID": "10",
+                    "Quantity": 21,
+                    "ExtendedPrice": 87.2,
+                    "ShipperName": "Fun Inc.",
+                    "ShippedDate": "2015-04-01T00:00:00",
+                    "Status": "A",
+                    "Currency": "CZK"
+                },
+                {
+                    "ID": "11",
+                    "Quantity": 21,
+                    "ExtendedPrice": 87.2,
+                    "ShipperName": "Fun Inc.",
+                    "ShippedDate": "2015-04-01T00:00:00",
+                    "Status": "A",
+                    "Currency": "CZK"
+                }
+            ]
         },
         {
             "ProductName": "Milk",

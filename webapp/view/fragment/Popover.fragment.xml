@@ -5,7 +5,7 @@
 	xmlns:l="sap.ui.layout">
 	<Popover
 		id="userMen"
-		title="User Menu"
+		title="Menu uživatele"
 		titleAlignment="Center"
 		placement="Bottom"
 		afterClose="onPopoverClose">

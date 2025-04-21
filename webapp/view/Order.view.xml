@@ -12,12 +12,32 @@
     <Page showHeader="false">
         <content>
             <VBox>
-                <core:Fragment fragmentName="com.collak.home.central.central.view.fragment.ShellBar" type="XML"/>
-                <ObjectHeader 
-                    intro="{Orders>ShipperName}"
+                <core:Fragment
+                    fragmentName="com.collak.home.central.central.view.fragment.ShellBar"
+                    type="XML"
+                />
+                <ObjectHeader
+                    intro="{Orders>Items/0/Quantity}"
                     title="{Orders>ProductName}"
-                >
-                </ObjectHeader>
+                />
+                <Table items="{Orders>Items}">
+                    <columns>
+                        <Column>
+                            <Text text="ID" />
+                        </Column>
+                        <Column>
+                            <Text text="Quantity" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{Orders>ID}" />
+                                <Text text="{Orders>Quantity}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
             </VBox>
         </content>
     </Page>

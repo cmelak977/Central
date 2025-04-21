@@ -52,6 +52,8 @@
                                         press=".handleTilePress"
                                         class="sapUiTinyMargin"
                                         mode="ContentMode"
+                                        state="{tileModel>state}"
+                                    
                                     >
                                         <TileContent unit="{tileModel>uom}">
                                             <ImageContent
@@ -142,7 +144,7 @@
                                 <Label text="Name" />
                                 <Text
                                     id="nameText"
-                                    text="{SupplierName}"
+                                    text="{tileModel>/head/full_name}" 
                                 />
                                 <Label text="Street/No." />
                                 <Text text="{Street} {HouseNumber}" />
