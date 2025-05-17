@@ -3,20 +3,15 @@ sap.ui.define([
     "sap/m/MessageToast",
     "sap/ui/core/Fragment",
     "sap/ui/core/routing/History",
-    "sap/ui/model/json/JSONModel",
-    "../model/formatter",
-    "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, Fragment, History, JSONModel, formatter, Filter, FilterOperator) {
+    function (Controller, MessageToast, Fragment, History, JSONModel) {
         "use strict";
 
         return Controller.extend("com.collak.home.central.central.controller.Holidays", {
-            formatter: formatter,
-
             onInit: function () {
 
                 this.oMyAvatar = this.oView.byId("avatarId");
@@ -31,10 +26,9 @@ sap.ui.define([
 
                 //ShellBar navigation
                 var oViewModel = new sap.ui.model.json.JSONModel({
-                    shellTitle: "Objednávky"
+                    shellTitle: "Svátky"
                 });
                 this.getView().setModel(oViewModel, "viewModel");
-
             },
             handleHomeIconPress: function (oEvent) {
                 const oHistory = History.getInstance();
@@ -46,9 +40,7 @@ sap.ui.define([
                     const oRouter = this.getOwnerComponent().getRouter();
                     oRouter.navTo("RouteHome", {}, true);
                 }
-
             },
-
             handleAvatarPress: function (oEvent) {
                 var oEventSource = oEvent.getSource(),
                     bActive = this.oMyAvatar.getActive();

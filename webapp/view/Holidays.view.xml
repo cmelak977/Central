@@ -11,7 +11,10 @@
 >
     <Page showHeader="false">
         <content>
-            <core:Fragment fragmentName="com.collak.home.central.central.view.fragment.ShellBar" type="XML"/>
+            <core:Fragment
+                fragmentName="com.collak.home.central.central.view.fragment.ShellBar"
+                type="XML"
+            />
             <List
                 id="holidayList"
                 headerText="{i18n>orders}"
@@ -26,16 +29,14 @@
                     </Toolbar>
                 </headerToolbar>
                 <items>
-                    <ObjectListItem
-                    title="{Holidays>Holidays>Name}">
+                    <ObjectListItem title="{Holidays>Holidays>Name}">
                         <firstStatus>
                             <ObjectStatus
-                                
                                 text="{Holidays>Holidays>Stores}"
                                 state="{Holidays>Holidays>State}"
-                                />
+                            />
                         </firstStatus>
-                        <ObjectAttribute text="{Holidays>Holidays>Date}"></ObjectAttribute>
+                        <ObjectAttribute text="{Holidays>Holidays>Date}" />
                     </ObjectListItem>
                 </items>
             </List>
