@@ -1,0 +1,15 @@
+{
+    "Tasks": [
+        {
+            "TaskName": "Pineapple",
+            "Quantity": 21,
+            "ExtendedPrice": 87.2,
+            "ShipperName": "Fun Inc.",
+            "ShippedDate": "2015-04-01T00:00:00",
+            "Status": "A",
+            "Currency": "CZK"
+            
+        }
+       
+    ]
+}

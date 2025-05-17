@@ -61,6 +61,10 @@
       "Orders":{
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/Orders.json"
+      },
+      "Tasks":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/tasks.json"
       }
     },
     "resources": {
