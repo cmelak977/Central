@@ -65,6 +65,10 @@
       "Tasks":{
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/tasks.json"
+      },
+      "Holidays":{
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/Holidays.json"
       }
     },
     "resources": {
@@ -105,6 +109,13 @@
           "target": [
             "TargetOrder"
           ]
+        },
+        {
+          "name": "GoToHolidays",
+          "pattern": "Holidays",
+          "target": [
+            "TargetHolidays"
+          ]
         }
       ],
       "targets": {
@@ -128,6 +139,13 @@
           "clearControlAggregation": false,
           "viewId": "Order",
           "viewName": "Order"
+        },
+        "TargetHolidays": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Holidays",
+          "viewName": "Holidays"
         }
       }
     },

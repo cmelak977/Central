@@ -1,0 +1,44 @@
+<mvc:View
+    xmlns:launchpad="sap.ushell.ui.launchpad"
+    controllerName="com.collak.home.central.central.controller.Holidays"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+>
+    <Page showHeader="false">
+        <content>
+            <core:Fragment fragmentName="com.collak.home.central.central.view.fragment.ShellBar" type="XML"/>
+            <List
+                id="holidayList"
+                headerText="{i18n>orders}"
+                width="auto"
+                class="sapUiResponsiveMargin"
+                items="{Holidays>/Holidays}"
+            >
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="{i18n>holidays}" />
+                        <ToolbarSpacer />
+                    </Toolbar>
+                </headerToolbar>
+                <items>
+                    <ObjectListItem
+                    title="{Holidays>Holidays>Name}">
+                        <firstStatus>
+                            <ObjectStatus
+                                
+                                text="{Holidays>Holidays>Stores}"
+                                state="{Holidays>Holidays>State}"
+                                />
+                        </firstStatus>
+                        <ObjectAttribute text="{Holidays>Holidays>Date}"></ObjectAttribute>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+    </Page>
+</mvc:View>

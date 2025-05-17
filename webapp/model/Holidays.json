@@ -1,0 +1,82 @@
+{
+  "Holidays": [
+    {
+      "Name": "Nový rok / Den obnovy samostatného českého státu",
+      "Date": "1.1.2025",
+      "Stores": "Zavřeno",
+      "State": "Error"
+    },
+    {
+      "Name": "Velký pátek",
+      "Date": "18.4.2025",
+      "Stores": "Otevřeno",
+      "State": "Success"
+    },
+    {
+      "Name": "Velikonoční pondělí",
+      "Date": "21.4.2025",
+      "Stores": "Zavřeno",
+      "State": "Error"
+    },
+    {
+      "Name": "Svátek práce",
+      "Date": "1.5.2025",
+      "Stores": "Otevřeno",
+      "State": "Success"
+    },
+    {
+      "Name": "Den vítězství",
+      "Date": "8.5.2025",
+      "Stores": "Zavřeno",
+      "State": "Error"
+    },
+    {
+      "Name": "Den slovanských věrozvěstů Cyrila a Metoděje",
+      "Date": "5.7.2025",
+      "Stores": "Otevřeno",
+      "State": "Success"
+    },
+    {
+      "Name": "Den upálení mistra Jana Husa",
+      "Date": "6.7.2025",
+      "Stores": "Otevřeno",
+      "State": "Success"
+    },
+    {
+      "Name": "Den české státnosti",
+      "Date": "28.9.2025",
+      "Stores": "Zavřeno",
+      "State": "Error"
+    },
+    {
+      "Name": "Den vzniku samostatného československého státu",
+      "Date": "28.10.2025",
+      "Stores": "Zavřeno",
+      "State": "Error"
+    },
+    {
+      "Name": "Den boje za svobodu a demokracii",
+      "Date": "17.11.2025",
+      "Stores": "Otevřeno",
+      "State": "Success"
+    },
+    {
+      "Name": "Štědrý den",
+      "Date": "24.12.2025",
+      "Stores": "Otevřeno do 12:00",
+      "State": "Success"
+    },
+    {
+      "Name": "1. svátek vánoční",
+      "Date": "25.12.2025",
+      "Stores": "Zavřeno",
+      "State": "Error"
+    },
+    {
+      "Name": "2. svátek vánoční",
+      "Date": "26.12.2025",
+      "Stores": "Zavřeno",
+      "State": "Error"
+    }
+  ]
+}

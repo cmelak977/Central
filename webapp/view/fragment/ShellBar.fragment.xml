@@ -7,7 +7,7 @@
         id="shellbar_main"
         title="{viewModel>/shellTitle}"
         homeIcon="https://domov.collak.cz/api/mc.png"
-        showCopilot="true"
+        showCopilot="false"
         showSearch="false"
         showNotifications="true"
         notificationsNumber="{tileModel>/head/notification}"
@@ -22,6 +22,11 @@
                 />
                 <MenuItem
                     id="menu_item_2"
+                    text="Svátky"
+                    icon="sap-icon://flight"
+                />
+                <MenuItem
+                    id="menu_item_3"
                     text="Objednávky"
                     icon="sap-icon://car-rental"
                 />

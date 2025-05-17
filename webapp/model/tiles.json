@@ -1,12 +1,19 @@
 {   
     "head": {
-      "notification": 10,
+      "notification": 0,
       "inicials": "MC",
       "image": "https://www.w3schools.com/howto/img_avatar.png",
       "full_name": "Martin Čollák"
       
     },
     "tiles": [
+      {
+        "title": "Svátky",
+        "subheader": "Přehled",
+        "route": "GoToHolidays",
+        "state": "Loaded",
+        "value": "13"
+      },
       {
         "title": "Objednávky",
         "subheader": "Přehled",
@@ -16,53 +23,6 @@
         "meaning": "Critical",
         "pointer": "Down",
         "uom": "CZK",
-        "state": "Loaded"
-      },
-      {
-        "title": "Statistiky",
-        "icon": "sap-icon://chart",
-        "route": "statistics",
-        "value": "200",
-        "state": "Failed"
-      },
-      {
-        "title": "Nastavení",
-        "icon": "sap-icon://settings",
-        "route": "settings",
-        "scale": "ks",
-        "value": "200",
-        "state": "Disabled"
-      },
-      {
-        "title": "Statistiky",
-        "icon": "sap-icon://chart",
-        "route": "statistics",
-        "scale": "%",
-        "value": "200",
-        "state": "Disabled"
-      },
-      {
-        "title": "Statistiky",
-        "icon": "sap-icon://chart",
-        "route": "statistics",
-        "scale": "%",
-        "value": "200",
-        "state": "Disabled"
-      },
-      {
-        "title": "Statistiky",
-        "icon": "sap-icon://chart",
-        "route": "statistics",
-        "scale": "%",
-        "value": "200",
-        "state": "Disabled"
-      },
-      {
-        "title": "Statistiky",
-        "icon": "sap-icon://chart",
-        "route": "statistics",
-        "scale": "%",
-        "value": "200",
         "state": "Disabled"
       }
     ]
